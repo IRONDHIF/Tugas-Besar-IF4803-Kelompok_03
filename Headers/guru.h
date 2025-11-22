@@ -1,0 +1,4 @@
+#ifndef GURU_H_INCLUDED
+#define GURU_H_INCLUDED
+
+#endif GURU_H_INCLUDED
