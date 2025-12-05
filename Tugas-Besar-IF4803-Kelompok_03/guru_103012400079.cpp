@@ -38,4 +38,14 @@ void deleteLastGuru(ListGuru &L, adrP &p){
     }
 }
 
-adrP findElemenGuru(ListGuru L, infotypeP x);
+adrP findElemenGuru(ListGuru L, infotypeP x){
+    adrP p = L.first;
+    while (p != nullptr){
+        if (p->infoGuru == x){
+            return p;
+        }
+        p = p->next;
+    }
+    return nullptr;
+    
+}
