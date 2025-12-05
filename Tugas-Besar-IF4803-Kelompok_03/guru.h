@@ -1,15 +1,17 @@
 #ifndef GURU_H_INCLUDED
 #define GURU_H_INCLUDED
 #include <iostream>
+#include "matapelajaran.h"
+
 using namespace std;
 
 typedef string infotypeP;
-typedef struct Guru *adrP;;
+typedef struct elmenGuru *adrP;
 
 struct elmenGuru{
     infotypeP infoGuru;
     adrP next;
-    adrP nextChild;
+    adrC nextChild;
 };
 
 struct ListGuru{
