@@ -2,10 +2,6 @@
 #include <iostream>
 using namespace std;
 
-void createListChild(adrP p){
-    p->nextChild = nullptr;
-}
-
 void insertFirstChild(adrP p, adrC c){
     if (p->nextChild == nullptr){
         p->nextChild = c;
