@@ -45,6 +45,7 @@ void deleteAfterChild(adrC prec, adrC &c){
 
 void viewChild(adrP p){
     adrC c = p->nextChild;
+    cout << "Daftar mata pelajaran : " << endl;
     while(c != nullptr){
         cout << c->infoC << ", ";
         c = c->next;
