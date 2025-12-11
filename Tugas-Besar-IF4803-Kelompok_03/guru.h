@@ -1,9 +1,10 @@
 #ifndef GURU_H_INCLUDED
 #define GURU_H_INCLUDED
 #include <iostream>
-#include "matapelajaran.h"
-
 using namespace std;
+
+struct elmenC;
+typedef struct elmenC* adrC;
 
 typedef string infotypeP;
 typedef struct elmenGuru *adrP;
@@ -30,4 +31,4 @@ adrP findElemenGuru(ListGuru L, infotypeP x);
 void viewParent(ListGuru L);
 void mennghitungJumlahGuru(ListGuru L);
 
-#endif GURU_H_INCLUDED
+#endif // GURU_H_INCLUDED

@@ -6,6 +6,7 @@ using namespace std;
 
 void menuAdmin();
 void menuGuru();
+void menuMataPelajaran();
 void menuUser();
 
 #endif // MAIN_H_INCLUDED

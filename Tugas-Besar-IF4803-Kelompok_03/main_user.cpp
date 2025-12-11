@@ -21,7 +21,7 @@ void menuUser(){
         switch(option) {
            case 1  :
               cout << "you choose option 1" << endl;
-              mennghitungJumlahGuru(L);
+              //mennghitungJumlahGuru(L);
 
               break;
            case 2  :
