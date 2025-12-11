@@ -24,4 +24,4 @@ void deleteAfterChild(adrC prec, adrC &c);
 adrC findElemenChild(adrP p, infotypeC x);
 void viewChild(adrP p);
 
-#endif MATAPELAJARAN_H_INCLUDED
+#endif //MATAPELAJARAN_H_INCLUDED
