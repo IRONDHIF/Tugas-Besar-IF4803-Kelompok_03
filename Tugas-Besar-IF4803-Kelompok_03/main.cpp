@@ -1,10 +1,15 @@
 #include <iostream>
 #include "main.h"
+#include "guru.h"
+#include "matapelajaran.h"
 
 using namespace std;
 
 int main()
 {
+   ListGuru L;
+   createListGuru(L);
+
     int option=-99;
     while (option != 0) {
         system("cls");
@@ -18,6 +23,7 @@ int main()
         switch(option) {
            case 1  :
               cout << "you choose option 1" << endl;
+              menuUser();
               break;
            case 2  :
               cout << "you choose option 2" << endl;

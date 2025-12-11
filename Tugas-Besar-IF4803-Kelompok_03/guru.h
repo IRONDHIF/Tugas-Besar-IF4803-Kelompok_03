@@ -28,5 +28,6 @@ void deleteLastGuru(ListGuru &L, adrP &p);
 void deleteAfterGuru(ListGuru &L, adrP &p, adrP prec);
 adrP findElemenGuru(ListGuru L, infotypeP x);
 void viewParent(ListGuru L);
+void mennghitungJumlahGuru(ListGuru L);
 
 #endif GURU_H_INCLUDED

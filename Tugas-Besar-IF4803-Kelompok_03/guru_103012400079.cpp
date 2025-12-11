@@ -49,3 +49,13 @@ adrP findElemenGuru(ListGuru L, infotypeP x){
     return nullptr;
     
 }
+
+void menghitungJumlahGuru(ListGuru L){
+    adrP p = L.first;
+    int count = 0;
+    while (p != nullptr){
+        count++;
+        p = p->next;
+    }
+    cout << "Jumlah Guru: " << count << endl;
+}
