@@ -46,7 +46,7 @@ void deleteAfterGuru(ListGuru &L, adrP &p, adrP prec){
 
 void viewParent(ListGuru L){
     adrP p;
-
+    cout << "=== Daftar Guru ===" << endl;
     p = L.first;
     while (p !=  nullptr){
         cout << "Nama Guru: " << p->infoGuru << endl;
