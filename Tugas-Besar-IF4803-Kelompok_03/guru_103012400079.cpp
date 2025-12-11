@@ -52,10 +52,10 @@ adrP findElemenGuru(ListGuru L, infotypeP x){
 
 void menghitungJumlahGuru(ListGuru L){
     adrP p = L.first;
-    int count = 0;
+    int jumlah = 0;
     while (p != nullptr){
-        count++;
+        jumlah++;
         p = p->next;
     }
-    cout << "Jumlah Guru: " << count << endl;
+    cout << "Jumlah Guru: " << jumlah << endl;
 }
