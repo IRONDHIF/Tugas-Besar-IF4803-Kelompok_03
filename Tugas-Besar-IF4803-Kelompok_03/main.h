@@ -9,4 +9,6 @@ void menuGuru();
 void menuMataPelajaran();
 void menuUser();
 
+void studiKasus1();
+
 #endif // MAIN_H_INCLUDED
