@@ -2,8 +2,11 @@
 #include "guru.h"
 #include "matapelajaran.h"
 
+using namespace std;
+
 ListGuru L;
 adrP p;
+infotypeP x;
 
 void menuAdmin(){
     int option = -99;
@@ -36,11 +39,10 @@ void menuAdmin(){
 void menuGuru(){
     int option = -99;
     while (option != 0) {
-        system("cls");
         cout << "============ Menu Parent============ " << endl;
         cout << "|| 1. insert first          ||" << endl;
         cout << "|| 2. insert last           ||" << endl;
-        cout << "|| .....dst                 ||" << endl;
+        cout << "|| 3. insert after          ||" << endl;
         cout << "|| 0. back                  ||" << endl;
         cout << "============================== " << endl;
         cout << "Choose your option : ";
@@ -48,8 +50,9 @@ void menuGuru(){
         switch(option) {
            case 1  :
               cout << "you choose option 1" << endl;
+              cin >> x;
+              p = createElementGuru(x);
               insertFirsttGuru(L, p);
-
               break;
            case 2  :
               cout << "you choose option 2" << endl;
