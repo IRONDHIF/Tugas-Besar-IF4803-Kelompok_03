@@ -4,8 +4,14 @@
 #include "guru.h"
 using namespace std;
 
-typedef string infotypeC;
+typedef struct mataPelajaran infotypeC;
 typedef struct elmenC *adrC;
+
+struct mataPelajaran  {
+    string nama;
+    int ID;
+    string  status;
+};
 
 struct elmenC{
     infotypeC infoC;

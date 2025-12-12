@@ -47,7 +47,7 @@ void viewChild(adrP p){
     adrC c = p->nextChild;
     cout << "Daftar mata pelajaran : " << endl;
     while(c != nullptr){
-        cout << c->infoC << ", ";
+        cout << c->infoC.nama << ", ";
         c = c->next;
     }
 }
