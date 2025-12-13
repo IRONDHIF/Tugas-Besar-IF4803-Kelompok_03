@@ -11,7 +11,7 @@ void menuUser(){
     while (option != 0) {
         system("cls");
         cout << "====== Menu Studi Kasus ====== " << endl;
-        cout << "|| 1. Studi Kasus 1         ||" << endl;
+        cout << "|| 1. Input matapelajaran         ||" << endl;
         cout << "|| 2. Studi Kasus 2         ||" << endl;
         cout << "|| .....dst                 ||" << endl;
         cout << "|| 0. back                  ||" << endl;
