@@ -7,12 +7,11 @@ using namespace std;
 typedef struct mataPelajaran infotypeC;
 typedef struct elmenC *adrC;
 
-struct mataPelajaran  {
+struct mataPelajaran{
     string nama;
     int ID;
-    string  status;
+    string status;
 };
-
 
 struct elmenC{
     infotypeC infoC;
@@ -20,8 +19,7 @@ struct elmenC{
     adrC prev;
 };
 
-void createListChild(adrP p);
-adrC createElemenChild(infotypeC x);
+adrC createElemenChild(string nama, int ID, string status);
 void insertFirstChild(adrP p, adrC c);
 void insertLastChild(adrP p, adrC c);
 void insertAfterChild(adrC prec, adrC c);
