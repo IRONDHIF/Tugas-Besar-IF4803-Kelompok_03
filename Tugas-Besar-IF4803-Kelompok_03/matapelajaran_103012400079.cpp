@@ -3,8 +3,12 @@
 
 using namespace std;
 
-adrC createElemenChild(infotypeC x){
+adrC createElemenChild(string nama, int ID, string status){
+    infotypeC x;
     adrC c = new elmenC;
+    x.nama = nama;
+    x.ID = ID;
+    x.status = status;
     c->infoC = x;
     c->next = nullptr;
     c->prev = nullptr;
@@ -47,7 +51,9 @@ void viewChild(adrP p){
     adrC c = p->nextChild;
     cout << "Daftar mata pelajaran : " << endl;
     while(c != nullptr){
-        cout << c->infoC << ", ";
+        cout << "Nama Mata Pelajaran: " << c->infoC.nama << endl;
+        cout << "ID Mata Pelajaran: " << c->infoC.ID << endl;
+        cout << "Status Mata Pelajaran: " << c->infoC.status << endl;
         c = c->next;
     }
 }
