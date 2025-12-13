@@ -15,6 +15,12 @@ struct elmenGuru{
     adrC nextChild;
 };
 
+struct elmenGuru{
+    infotypeP infoGuru;
+    adrP next;
+    adrC nextChild;
+};
+
 struct ListGuru{
     adrP first;
 };
