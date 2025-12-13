@@ -2,9 +2,13 @@
 #include <iostream>
 using namespace std;
 
-adrP createElementGuru(infotypeP x){
+adrP createElementGuru(string nama, string kode, int umur){
+    infotypeP x;
     adrP p = new elmenGuru;
 
+    x.nama = nama;
+    x.kode = kode;
+    x.umur = umur;
     p->infoGuru = x;
     p->next = nullptr;
     p->nextChild = nullptr;
@@ -49,7 +53,10 @@ void viewParent(ListGuru L){
     cout << "=== Daftar Guru ===" << endl;
     p = L.first;
     while (p !=  nullptr){
-        cout << "Nama Guru: " << p->infoGuru << endl;
+        cout << "Nama Guru: " << p->infoGuru.nama << endl;
+        cout << "Kode Guru: " << p->infoGuru.kode << endl;
+        cout << "Umur Guru: " << p->infoGuru.umur << endl;
+        cout << "-----------" << endl;
         p = p->next;
     }
 }
