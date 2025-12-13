@@ -23,25 +23,25 @@ void insertAfterGuru(ListGuru &L, adrP p, adrP prec){
 }
 
 void deleteLastGuru(ListGuru &L, adrP &p){
-    adrP q = L.first;
     if(L.first == nullptr){
-        cout << "List kosong, tidak dapat dihapus!" << endl;
-    }else if(q->next == nullptr){
+        cout << "List kosong, tidak dapat dihapus!\n" << endl;
+    }else if(L.first->next == nullptr){
             p = L.first;
             L.first = nullptr;
     }else{
+        adrP q = L.first;
         while(q->next->next != nullptr){
             q = q->next;
-            }
-            p = q->next;
-            q->next = nullptr;
+        }
+        p = q->next;
+        q->next = nullptr;
     }
 }
 
-adrP findElemenGuru(ListGuru L, infotypeP x){
+adrP findElemenGuru(ListGuru L, string nama){
     adrP p = L.first;
     while (p != nullptr){
-        if (p->infoGuru == x){
+        if (p->infoGuru.nama == nama){
             return p;
         }
         p = p->next;
