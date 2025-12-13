@@ -24,7 +24,7 @@ void insertAfterGuru(ListGuru &L, adrP p, adrP prec){
 
 void deleteLastGuru(ListGuru &L, adrP &p){
     adrP q = L.first;
-    if(L.first != nullptr){
+    if(L.first == nullptr){
         cout << "List kosong, tidak dapat dihapus!" << endl;
     }else if(q->next == nullptr){
             p = L.first;
@@ -47,7 +47,7 @@ adrP findElemenGuru(ListGuru L, infotypeP x){
         p = p->next;
     }
     return nullptr;
-    
+
 }
 
 void menghitungJumlahGuru(ListGuru L){
