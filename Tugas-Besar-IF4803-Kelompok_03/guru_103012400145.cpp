@@ -30,7 +30,7 @@ void insertLastGuru(ListGuru &L, adrP p){
 
 void deleteFirstGuru(ListGuru &L, adrP &p){
     if (L.first == nullptr){
-        cout << "List kosong, tidak dapat dihapus!" << endl;
+        cout << "List kosong, tidak dapat dihapus!\n" << endl;
     } else if (L.first->next == nullptr) {
         p = L.first;
         L.first = nullptr;
@@ -56,7 +56,8 @@ void viewParent(ListGuru L){
         cout << "Nama Guru: " << p->infoGuru.nama << endl;
         cout << "Kode Guru: " << p->infoGuru.kode << endl;
         cout << "Umur Guru: " << p->infoGuru.umur << endl;
-        cout << "-----------" << endl;
+        cout << "---------------------------" << endl;
         p = p->next;
     }
+    cout << endl;
 }
