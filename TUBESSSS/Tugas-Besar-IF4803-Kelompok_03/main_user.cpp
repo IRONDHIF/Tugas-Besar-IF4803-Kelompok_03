@@ -34,5 +34,5 @@ void menuUser(){
     }
 }
 
-
+void studiKasus1();
 
