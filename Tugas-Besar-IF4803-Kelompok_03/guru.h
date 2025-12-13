@@ -6,13 +6,13 @@ using namespace std;
 struct elmenC;
 typedef struct elmenC* adrC;
 
-typedef string infotypeP;
+typedef struct guru infotypeP;
 typedef struct elmenGuru *adrP;
 
-struct elmenGuru{
-    infotypeP infoGuru;
-    adrP next;
-    adrC nextChild;
+struct guru{
+    string nama;
+    int ID;
+    int umur;
 };
 
 struct elmenGuru{
