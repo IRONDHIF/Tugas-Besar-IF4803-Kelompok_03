@@ -119,3 +119,47 @@ void printGuruMatapelajaran(ListGuru L){
     }
     cout << "==============================" << endl;
 }
+
+void studiKasus3(ListGuru &L){
+    cout << "pada studicase ini kita akan menghapus mata pelajaran tertentu dari guru tertentu\n";
+    string kodeGuru;
+    int kodeMatapelajaran;
+    cout << "Masukkan kode guru: ";
+    cin >> kodeGuru;
+    cout << "Masukkan kode mata pelajaran: ";
+    cin >> kodeMatapelajaran;
+
+    adrP P = L.first;
+    while (P != nullptr && P->infoGuru.kode != kodeGuru){
+        P = P->next;
+    }
+    if (P == nullptr){
+        cout << "Guru dengan kode tersebut tidak ditemukan." << endl;
+        return;
+    } else {
+        adrC C = P->nextChild;
+        while (C != nullptr && C->infoC.ID != kodeMatapelajaran){
+            C = C->next;
+        }
+        if (C == nullptr){
+            cout << "Mata pelajaran dengan kode tersebut tidak ditemukan untuk guru ini." << endl;
+            return;
+        } else {
+            if (C == P->nextChild){
+                deleteFirstChild(P, C);
+            } else if (C->next == nullptr){
+                deleteLastChild(P, C);
+            } else {
+                adrC Z = P->nextChild;
+                while (Z->next != C){
+                    Z = C->next;
+                }
+                deleteAfterChild(Z, C);
+            }
+
+            cout << "Mata pelajaran berhasil dihapus dari guru." << endl;
+        }
+    }
+
+}
+
