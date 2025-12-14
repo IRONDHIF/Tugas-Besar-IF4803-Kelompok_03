@@ -15,27 +15,34 @@ void insertAfterChild(adrC prec, adrC c){
     c->next = prec->next;
     c->prev = prec;
     prec->next = c;
-    c->next->prev = prec;
+    if (c->next != nullptr){
+        c->next->prev = c;
+    }
 }
 
 void deleteLastChild(adrP p, adrC &c){
     if (p->nextChild == nullptr){
-        cout << "tidak ada child yang dapat dihapsus!";
+        cout << "Tidak ada child yang dapat dihapus!\n" << endl;;
     } else {
         adrC q = p->nextChild;
-        while (p->nextChild->next->next != nullptr){
-            p->nextChild = p->nextChild->next;
+        while (q->next != nullptr){
+            q = q->next;
         }
-        c = q->next;
+        c = q;
+        if (q->prev == nullptr){
+            p->nextChild = nullptr;
+        } else {
+            q->prev->next = nullptr;
+        }
         q->next = nullptr;
         c->prev = nullptr;
     }
 }
 
-adrC findElemenChild(adrP p, infotypeC x){
+adrC findElemenChild(adrP p, string nama){
     adrC q = p->nextChild;
     while (q != nullptr){
-        if (q->infoC == x){
+        if (q->infoC.nama == nama){
             return q;
         }
         q = q->next;
