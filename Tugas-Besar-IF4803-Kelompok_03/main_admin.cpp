@@ -11,7 +11,7 @@ infotypeP x;
 string nama, kode, status, namaPrec;
 int umur, ID;
 
-void menuAdmin(){
+void menuAdmin(ListGuru &L){
     int option = -99;
     while (option != 0) {
         cout << "============ Menu Admin ============" << endl;
@@ -24,11 +24,11 @@ void menuAdmin(){
         switch(option) {
            case 1  :
               system("cls");
-              menuGuru();
+              menuGuru(L);
               break;
            case 2  :
               system("cls");
-              menuMataPelajaran();
+              menuMataPelajaran(L);
               break;
            case 0 :
               system("cls");
@@ -40,7 +40,7 @@ void menuAdmin(){
 }
 
 
-void menuGuru(){
+void menuGuru(ListGuru &L){
     int option = -99;
     while (option != 0) {
         cout << "============ Menu Parent ===========" << endl;
@@ -134,7 +134,7 @@ void menuGuru(){
     }
 }
 
-void menuMataPelajaran(){
+void menuMataPelajaran(ListGuru &L){
     int option = -99;
     while (option != 0) {
         cout << "============ Menu Child ============" << endl;
@@ -150,11 +150,6 @@ void menuMataPelajaran(){
         cout << "Choose your option : ";
         cin >> option;
         switch(option) {
-           if (option >= 1 && option <= 6){
-
-
-
-           }
            case 1  :
               system("cls");
               cout << "Masukkan nama guru yang akan mengambil mata pelajaran: ";
