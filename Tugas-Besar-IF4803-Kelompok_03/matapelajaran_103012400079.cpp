@@ -29,11 +29,13 @@ void insertLastChild(adrP p, adrC c){
 
 void deleteFirstChild(adrP p, adrC &c){
     if(p->nextChild == nullptr){
-        cout << "tidak ada childe yang dapat dihapsus!" << endl;
+        cout << "Tidak ada child yang dapat dihapus!\n" << endl;
     }else{
         c = p->nextChild;
         p->nextChild = c->next;
-        c->next->prev = nullptr;
+        if (p->nextChild != nullptr){
+            p->nextChild->prev = nullptr;
+        }
         c->next = nullptr;
         c->prev = nullptr;
     }
@@ -49,11 +51,13 @@ void deleteAfterChild(adrC prec, adrC &c){
 
 void viewChild(adrP p){
     adrC c = p->nextChild;
-    cout << "Daftar mata pelajaran : " << endl;
+    cout << "==== Daftar mata pelajaran ====" << endl;
     while(c != nullptr){
-        cout << "Nama Mata Pelajaran: " << c->infoC.nama << endl;
-        cout << "ID Mata Pelajaran: " << c->infoC.ID << endl;
-        cout << "Status Mata Pelajaran: " << c->infoC.status << endl;
+        cout << "Nama Mata Pelajaran   : " << c->infoC.nama << endl;
+        cout << "ID Mata Pelajaran     : " << c->infoC.ID << endl;
+        cout << "Status Mata Pelajaran : " << c->infoC.status << endl;
+        cout << "---------------------------------" << endl;
         c = c->next;
     }
+    cout << endl;
 }
