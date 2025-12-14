@@ -11,9 +11,10 @@ void menuUser(){
     while (option != 0) {
         system("cls");
         cout << "====== Menu Studi Kasus ====== " << endl;
-        cout << "|| 1. Input data Guru (NAMA / KODE guru harus berbeda)       ||" << endl;
-        cout << "|| 2. Studi Kasus 2         ||" << endl;
-        cout << "|| .....dst                 ||" << endl;
+        cout << "|| 1. Menampilakan Guru dan Matapelajaran                    ||" << endl;
+        cout << "|| 2. Input data Guru (NAMA / KODE guru harus berbeda)       ||" << endl;
+        cout << "|| 3. Menghapus guru yang tidak memiliki matapelajaran       ||" << endl;
+        cout << "|| 4. Menghapus matapelajaran dari guru tertentu             ||" << endl;
         cout << "|| 0. back                  ||" << endl;
         cout << "============================== " << endl;
         cout << "Choose your option : ";
@@ -37,8 +38,6 @@ void studiKasus1(ListGuru L){
     string nama, kode;
     int umur;
     adrP q;
-    adrC C;
-    
     cout << "pada studicase ini kita akan memasukan data guru baru\n";
     cout << "inputkan data guru baru :\n";
     cout << "nama : ";
@@ -64,41 +63,59 @@ void studiKasus1(ListGuru L){
     
 }
 
-void studiKasus2(ListGuru L){
-    
+void studiKasus2(ListGuru &L){
+    int hapus = 0;
     cout << "pada studi case ini kita akan menghapus guru yang tidak memegang mata pelajaran sama sekali";
+    cout << "Menghapus Guru yang tidak memiliki matakpelajaran..." << endl;
     adrP Q = L.first;
     while ( Q != nullptr){
         adrC Z = Q->nextChild;
         if (Z == nullptr){
-            void deleteByValue(List &L, int x) {
-                if (L.first == NULL) {
-                    cout << "List kosong\n";
-                    return;
-                } else if (L.first->info == x) {
-                    deleteFirst(L);
-                    return;
+            hapus++;
+            if (Q == L.first){
+                deleteFirstGuru(L, Q);
+            } else if (Q->next == nullptr){
+                deleteLastGuru(L, Q);
+            } else {
+                adrP P = L.first;
+                while (P->next != Q){
+                    P = P->next;
                 }
-
-                Node* prec = L.first;
-                Node* curr = L.first->next;
-
-                while (curr != NULL && curr->info != x) {
-                    prec = curr;
-                    curr = curr->next;
-                }
-
-                }
-
-                if (curr->next == NULL) {
-                    deleteLast(L);
-                }
-                else {
-                    deleteAfter(L, prec);
-                }
+                deleteAfterGuru(L, P, Q);
             }
-
         }
+        Q = Q->next;
     }
+    if (hapus == 0){
+        cout << "Tidak ada guru yang tidak memegang mata pelajaran." << endl;
+        return;
+    }
+    cout << "Semua guru yang tidak memegang mata pelajaran telah dihapus." << endl;
 }
 
+void printGuruMatapelajaran(ListGuru L){
+    adrP P = L.first;
+    if (P == nullptr){
+        cout << "Tidak ada data guru." << endl;
+        return;
+    }
+    cout << "Daftar Guru dan Mata Pelajaran:" << endl;
+    while (P != nullptr){
+        cout << "==============================" << endl;
+        cout << "Nama Guru: " << P->infoGuru.nama << "\nKode: " << P->infoGuru.kode << "\nUmur: " << P->infoGuru.umur << endl;
+        cout << "==============================" << endl;
+        adrC C = P->nextChild;
+        if (C == nullptr){
+            cout << "  Tidak ada mata pelajaran." << endl;
+        } else {
+            cout << "  Mata Pelajaran: ";
+            while (C != nullptr){
+                cout << C->infoC.nama << " (" << C->infoC.ID << "), ";
+                C = C->next;
+            }
+            cout << endl;
+        }
+        P = P->next;
+    }
+    cout << "==============================" << endl;
+}
