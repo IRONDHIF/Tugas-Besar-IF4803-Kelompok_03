@@ -5,7 +5,8 @@
 using namespace std;
 
 ListGuru L;
-adrP p, prec;
+adrP p, precP;
+adrC c, precC;
 infotypeP x;
 string nama, kode, status, namaPrec;
 int umur, ID;
@@ -83,8 +84,8 @@ void menuGuru(){
               system("cls");
               cout << "Masukkan nama guru prec: ";
               cin >> namaPrec;
-              prec = findElemenGuru(L, namaPrec);
-              if (prec != nullptr){
+              precP = findElemenGuru(L, namaPrec);
+              if (precP != nullptr){
                 cout << "Masukkan nama guru: ";
                 cin >> nama;
                 cout << "Masukkan kode guru: ";
@@ -92,7 +93,7 @@ void menuGuru(){
                 cout << "Masukkan umur guru: ";
                 cin >> umur;
                 p = createElementGuru(nama, kode, umur);
-                insertAfterGuru(L, p, prec);
+                insertAfterGuru(L, p, precP);
                 system("cls");
               } else {
                 cout << "Guru dengan nama " << namaPrec << " tidak ditemukan!\n" << endl;
@@ -111,13 +112,13 @@ void menuGuru(){
               system("cls");
               cout << "Masukkan nama guru prec: ";
               cin >> namaPrec;
-              prec = findElemenGuru(L, namaPrec);
-              if (prec == nullptr){
+              precP = findElemenGuru(L, namaPrec);
+              if (precP == nullptr){
                 cout << "Guru dengan nama " << namaPrec << " tidak ditemukan!\n" << endl;
-              } else if (prec->next == nullptr){
+              } else if (precP->next == nullptr){
                 cout << "Tidak ada elemen setelah nama " << namaPrec << "\n" << endl;
               } else {
-                deleteAfterGuru(L, p, prec);
+                deleteAfterGuru(L, p, precP);
               }
               break;
            case 7 :
@@ -143,20 +144,105 @@ void menuMataPelajaran(){
         cout << "|| 4. delete first                ||" << endl;
         cout << "|| 5. delete last                 ||" << endl;
         cout << "|| 6. delete after                ||" << endl;
+        cout << "|| 7. tampilkan mata pelajaran    ||" << endl;
         cout << "|| 0. back                        ||" << endl;
         cout << "====================================" << endl;
         cout << "Choose your option : ";
         cin >> option;
         switch(option) {
+           if (option >= 1 && option <= 6){
+
+
+
+           }
            case 1  :
-              // write your code here
+              system("cls");
+              cout << "Masukkan nama guru yang akan mengambil mata pelajaran: ";
+              cin >> nama;
+              p = findElemenGuru(L, nama);
+              if (p == nullptr){
+                  cout << "Nama guru tidak ditemukan!\n" << endl;
+                  break;
+              }
+              cout << "Masukkan nama mata pelajaran: ";
+              cin >> nama;
+              cout << "Masukkan kode mata pelajaran: ";
+              cin >> ID;
+              c = createElemenChild(nama, ID, "Diambil");
+              insertFirstChild(p, c);
+              system("cls");
               break;
            case 2  :
-              // write your code here
+              system("cls");
+              cout << "Masukkan nama guru yang akan mengambil mata pelajaran: ";
+              cin >> nama;
+              p = findElemenGuru(L, nama);
+              if (p == nullptr){
+                  cout << "Nama guru tidak ditemukan!\n" << endl;
+                  break;
+              }
+              cout << "Masukkan nama mata pelajaran: ";
+              cin >> nama;
+              cout << "Masukkan kode mata pelajaran: ";
+              cin >> ID;
+              c = createElemenChild(nama, ID, "Diambil");
+              insertLastChild(p, c);
+              system("cls");
+              break;
+           case 3 :
+              system("cls");
+              cout << "Masukkan nama guru yang akan mengambil mata pelajaran: ";
+              cin >> nama;
+              p = findElemenGuru(L, nama);
+              if (p == nullptr){
+                  cout << "Nama guru tidak ditemukan!\n" << endl;
+                  break;
+              }
+              cout << "Masukkan nama mata pelajaran prec: ";
+              cin >> namaPrec;
+              precC = findElemenChild(p, namaPrec);
+              if (precC != nullptr){
+                cout << "Masukkan nama mata pelajaran: ";
+                cin >> nama;
+                cout << "Masukkan kode mata pelajaran: ";
+                cin >> ID;
+                c = createElemenChild(nama, ID, "Diambil");
+                insertAfterChild(precC, c);
+                system("cls");
+              } else {
+                cout << "Mata pelajaran " << namaPrec << " tidak ditemukan!\n" << endl;
+              }
+              break;
+           case 4 :
+              system("cls");
+              deleteFirstChild(p, c);
+              break;
+           case 5 :
+              system("cls");
+              deleteLastChild(p, c);
+              break;
+           case 6 :
+              system("cls");
+              cout << "Masukkan nama mata pelajaran prec: ";
+              cin >> namaPrec;
+              precC = findElemenChild(p, namaPrec);
+              if (precC == nullptr){
+                cout << "Mata pelajaran " << namaPrec << " tidak ditemukan!\n" << endl;
+              } else if (precC->next == nullptr){
+                cout << "Tidak ada elemen setelah mata pelajaran " << namaPrec << "\n" << endl;
+              } else {
+                deleteAfterChild(precC, c);
+              }
+              break;
+           case 7 :
+              system("cls");
+              viewChild(p);
               break;
            case 0 :
               system("cls");
               break;
+           default :
+              cout << "Pilihan tidak valid!\n" << endl;
         }
     }
 }
