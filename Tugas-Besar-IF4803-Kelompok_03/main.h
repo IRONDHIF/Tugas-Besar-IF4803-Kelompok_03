@@ -11,7 +11,8 @@ void menuGuru();
 void menuMataPelajaran();
 void menuUser();
 
-void studiKasus1(ListGuru L);
-void studiKasus2(ListGuru L);
-
+void studiKasus1(ListGuru &L);
+void studiKasus2(ListGuru &L);
+void printGuruMatapelajaran(ListGuru L);
+void studiKasus3();
 #endif // MAIN_H_INCLUDED
