@@ -26,7 +26,7 @@ void insertAfterChild(adrC prec, adrC c);
 void deleteFirstChild(adrP p, adrC &c);
 void deleteLastChild(adrP p, adrC &c);
 void deleteAfterChild(adrC prec, adrC &c);
-adrC findElemenChild(adrP p, infotypeC x);
+adrC findElemenChild(adrP p, string x);
 void viewChild(adrP p);
 
 #endif // MATAPELAJARAN_H_INCLUDED
