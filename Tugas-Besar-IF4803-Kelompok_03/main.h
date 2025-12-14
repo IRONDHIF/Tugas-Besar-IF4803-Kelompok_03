@@ -6,13 +6,14 @@
 
 using namespace std;
 
-void menuAdmin();
-void menuGuru();
-void menuMataPelajaran();
-void menuUser();
+void menuAdmin(ListGuru &L);
+void menuGuru(ListGuru &L);
+void menuMataPelajaran(ListGuru &L);
+void menuUser(ListGuru &L);
 
 void studiKasus1(ListGuru &L);
 void studiKasus2(ListGuru &L);
 void printGuruMatapelajaran(ListGuru L);
-void studiKasus3();
+void studiKasus3(ListGuru &L);
+void studiKasus4(ListGuru L);
 #endif // MAIN_H_INCLUDED
