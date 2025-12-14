@@ -5,8 +5,7 @@
 
 using namespace std;
 
-void menuUser(){
-    ListGuru L;
+void menuUser(ListGuru &L){
     int option=-99;
     while (option != 0) {
         system("cls");
@@ -15,26 +14,49 @@ void menuUser(){
         cout << "|| 2. Input data Guru (NAMA / KODE guru harus berbeda)       ||" << endl;
         cout << "|| 3. Menghapus guru yang tidak memiliki matapelajaran       ||" << endl;
         cout << "|| 4. Menghapus matapelajaran dari guru tertentu             ||" << endl;
-        cout << "|| 0. back                  ||" << endl;
+        cout << "|| 5. Menghitung matapelajaran yang dipegang setiap guru     ||" << endl;
+        cout << "|| 6. Menyisipkan matapelajaran kepada guru pilihan          ||" << endl;
+        cout << "|| 7. Menghitung Total matapelajaran yang sudah diambil      ||" << endl;
+        cout << "|| 0. back                                                   ||" << endl;
         cout << "============================== " << endl;
         cout << "Choose your option : ";
         cin >> option;
         switch(option) {
            case 1  :
               cout << "you choose option 1" << endl;
-                studiKasus1(L);
+                printGuruMatapelajaran(L);
               break;
            case 2  :
               cout << "you choose option 2" << endl;
-              // write your code here
+                studiKasus1(L);
 
               break;
-            // continue for another case here
+            case 3 :
+                cout << " you choose option 3" << endl;
+                studiKasus2(L);
+                break;
+            case 4 :
+                cout << "you choose option 4" << endl;
+                studiKasus3(L);
+                break;
+            case 5 :
+                cout << "you choose option 5" << endl;
+                studiKasus4(L);
+                break;
+            case 6 :
+                cout << "you choose option 6" << endl;
+                studiKasus5(L);
+            case 7 :
+                cout << "you choose option 6" << endl;
+                studiKasus6(L);
+           case 0  :
+              cout << "Back to main menu..." << endl;
+              break;
         }
     }
 }
 
-void studiKasus1(ListGuru L){
+void studiKasus1(ListGuru &L){
     string nama, kode;
     int umur;
     adrP q;
@@ -44,11 +66,9 @@ void studiKasus1(ListGuru L){
     cin >> nama;
     cout << "\nkode : ";
     cin >> kode;
-    cout << "\numur : " << endl;
+    cout << "\numur : ";
     cin >> umur;
-    
-    createElementGuru(nama, kode, umur);
-    
+        
     q = L.first;
     while (q != nullptr){
         if (q->infoGuru.nama == nama || q->infoGuru.kode == kode){
@@ -57,8 +77,9 @@ void studiKasus1(ListGuru L){
         }
         q = q->next;
     }
-    q = createElementGuru(nama, kode, umur);
-    insertLastGuru(L, q);
+    cout << "halo";
+    adrP p = createElementGuru(nama, kode, umur);
+    insertLastGuru(L, p );
     cout << "DATA GURU BERHASIL DIMASUKAN";
     
 }
@@ -103,7 +124,7 @@ void printGuruMatapelajaran(ListGuru L){
     while (P != nullptr){
         cout << "==============================" << endl;
         cout << "Nama Guru: " << P->infoGuru.nama << "\nKode: " << P->infoGuru.kode << "\nUmur: " << P->infoGuru.umur << endl;
-        cout << "==============================" << endl;
+        cout << "------------------------------" << endl;
         adrC C = P->nextChild;
         if (C == nullptr){
             cout << "  Tidak ada mata pelajaran." << endl;
@@ -163,3 +184,69 @@ void studiKasus3(ListGuru &L){
 
 }
 
+void studiKasus4(ListGuru L){
+    cout << "pada studicase ini kita akan menghitung jumlah mata pelajaran yang dipegang oleh setiap guru\n";
+    adrP P = L.first;
+    while (P != nullptr){
+        int jumlah = 0;
+        adrC C = P->nextChild;
+        while (C != nullptr){
+            jumlah++;
+            C = C->next;
+        }
+        cout << "Guru " << P->infoGuru.nama << " mengajar " << jumlah << " mata pelajaran." << endl;
+        P = P->next;
+    }
+
+}
+
+void studiKasus5(ListGuru &L){
+    cout << "pada studicase ini kita akan menyisipkan mata pelajaran baru ke guru tertentu\n";
+    string kodeGuru, namaMatapelajaran, status;
+    int kodeMatapelajaran;
+    cout << "Masukkan kode guru: ";
+    cin >> kodeGuru;
+    cout << "Masukkan nama mata pelajaran: ";
+    cin >> namaMatapelajaran;
+    cout << "Masukkan kode mata pelajaran: ";
+    cin >> kodeMatapelajaran;
+    //cek apakah mata pelajaran sudah ada pada guru tersebut atau guru lain
+    adrP P = L.first;
+     while (P != nullptr){
+         adrC V = findElemenChild(P, namaMatapelajaran);
+         if( V != nullptr ){
+             cout << "Mata pelajaran dengan kode tersebut sudah ada." << endl;
+             return;
+         }
+         P = P->next;
+     }
+          P = L.first;
+          while (P != nullptr && P->infoGuru.kode != kodeGuru){
+              P = P->next;
+        }
+        if (P == nullptr){
+            cout << "Guru dengan kode tersebut tidak ditemukan." << endl;
+            return;
+        } else {
+            status ="sudah diambil";
+            adrC C = createElemenChild(namaMatapelajaran, kodeMatapelajaran, status);
+            insertLastChild(P, C);
+            cout << "Mata pelajaran berhasil ditambahkan ke guru." << endl;
+        }
+    }
+
+void studiKasus6(ListGuru L){
+    cout << "pada studicase ini kmau akan menghitung jumlah mataPelajaran yang sudah diambil oleh guru" << endl;
+    int total;
+    total = 0;
+    adrP p = L.first;
+    while ( p != nullptr){
+        adrC C = p->nextChild;
+        while (C != nullptr){
+            total = total + 1;
+            C =C->next;
+        }
+        p = p->next;
+    }
+    cout << "total matakPelajaran yang sudah diambil : " << total << endl;
+}
