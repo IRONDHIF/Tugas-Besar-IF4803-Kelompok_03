@@ -16,4 +16,7 @@ void studiKasus2(ListGuru &L);
 void printGuruMatapelajaran(ListGuru L);
 void studiKasus3(ListGuru &L);
 void studiKasus4(ListGuru L);
+void studiKasus5(ListGuru &L);
+void studiKasus6(ListGuru L);
+
 #endif // MAIN_H_INCLUDED
