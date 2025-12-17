@@ -38,6 +38,7 @@ void deleteFirstChild(adrP p, adrC &c){
         }
         c->next = nullptr;
         c->prev = nullptr;
+        cout << "Data mata pelajaran berhasil dihapus!\n" << endl;
     }
 }
 
@@ -47,6 +48,7 @@ void deleteAfterChild(adrC prec, adrC &c){
     c->next->prev = prec;
     c->next = nullptr;
     c->prev = nullptr;
+    cout << "Data mata pelajaran berhasil dihapus!\n" << endl;
 }
 
 void viewChild(adrP p){
