@@ -63,6 +63,7 @@ void menuGuru(ListGuru &L){
               p = createElementGuru(nama, kode, umur);
               insertFirsttGuru(L, p);
               system("cls");
+              cout << "Data guru berhasil ditambahkan!\n" << endl;
               break;
            case 2  :
               system("cls");
@@ -75,6 +76,7 @@ void menuGuru(ListGuru &L){
               p = createElementGuru(nama, kode, umur);
               insertLastGuru(L, p);
               system("cls");
+              cout << "Data guru berhasil ditambahkan!\n" << endl;
               break;
            case 3 :{
               system("cls");
@@ -91,6 +93,7 @@ void menuGuru(ListGuru &L){
                 p = createElementGuru(nama, kode, umur);
                 insertAfterGuru(L, p, precP);
                 system("cls");
+                cout << "Data guru berhasil ditambahkan!\n" << endl;
               } else {
                 cout << "Guru dengan nama " << namaPrec << " tidak ditemukan!\n" << endl;
               }
@@ -112,7 +115,7 @@ void menuGuru(ListGuru &L){
               if (precP == nullptr){
                 cout << "Guru dengan nama " << namaPrec << " tidak ditemukan!\n" << endl;
               } else if (precP->next == nullptr){
-                cout << "Tidak ada elemen setelah nama " << namaPrec << "\n" << endl;
+                cout << "Tidak ada data guru setelah nama " << namaPrec << "\n" << endl;
               } else {
                 deleteAfterGuru(L, p, precP);
               }
@@ -182,6 +185,7 @@ void menuMataPelajaran(ListGuru &L){
                 c = createElemenChild(nama, ID, "Diambil");
                 insertFirstChild(p, c);
                 system("cls");
+                cout << "Data mata pelajaran berhasil ditambahkan!\n" << endl;
               }
               break;
            case 2  :
@@ -215,6 +219,7 @@ void menuMataPelajaran(ListGuru &L){
                 c = createElemenChild(nama, ID, "Diambil");
                 insertLastChild(p, c);
                 system("cls");
+                cout << "Data mata pelajaran berhasil ditambahkan!\n" << endl;
               }
               break;
            case 3 :
@@ -252,6 +257,7 @@ void menuMataPelajaran(ListGuru &L){
                     c = createElemenChild(nama, ID, "Diambil");
                     insertAfterChild(precC, c);
                     system("cls");
+                    cout << "Data mata pelajaran berhasil ditambahkan!\n" << endl;
                 }
               } else {
                 cout << "Mata pelajaran " << namaPrec << " tidak ditemukan!\n" << endl;
@@ -295,11 +301,7 @@ void menuMataPelajaran(ListGuru &L){
               break;
            case 7 :
               system("cls");
-              if (c == nullptr){
-                cout << "==== Daftar mata pelajaran ====\n" << endl;
-              } else {
-                viewChild(p);
-              }
+              viewChild(p);
               break;
            case 0 :
               system("cls");
