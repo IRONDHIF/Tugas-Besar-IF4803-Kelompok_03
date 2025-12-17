@@ -28,6 +28,7 @@ void deleteLastGuru(ListGuru &L, adrP &p){
     }else if(L.first->next == nullptr){
             p = L.first;
             L.first = nullptr;
+            cout << "Data guru berhasil dihapus!\n" << endl;
     }else{
         adrP q = L.first;
         while(q->next->next != nullptr){
@@ -35,6 +36,7 @@ void deleteLastGuru(ListGuru &L, adrP &p){
         }
         p = q->next;
         q->next = nullptr;
+        cout << "Data guru berhasil dihapus!\n" << endl;
     }
 }
 
