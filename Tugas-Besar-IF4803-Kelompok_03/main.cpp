@@ -9,13 +9,13 @@ int main()
 {
    ListGuru L;
    createListGuru(L);
-    
-    insertLastGuru(L, createElementGuru("Budi", "G01", 40));
+
+   insertLastGuru(L, createElementGuru("Budi", "G01", 40));
     insertLastGuru(L, createElementGuru("Siti", "G02", 35));
     insertLastGuru(L, createElementGuru("Andi", "G03", 45));
     insertLastGuru(L, createElementGuru("Rina", "G04", 30));
     insertLastGuru(L, createElementGuru("Doni", "G05", 50));
-    
+
     adrP p = L.first;
 
     // G01 - banyak mapel
@@ -41,32 +41,30 @@ int main()
     insertLastChild(p, createElemenChild("Jaringan", 403, "sudah diambil"));
     insertLastChild(p, createElemenChild("AI", 404, "sudah diambil"));
 
-
     int option=-99;
     while (option != 0) {
-        system("cls");
-        cout << "============ Menu ============ " << endl;
-        cout << "|| 1. Test Case             ||" << endl;
-        cout << "|| 2. Study Case            ||" << endl;
-        cout << "|| 0. exit                  ||" << endl;
-        cout << "============================== " << endl;
-        cout << "Choose your option : ";
+        cout << "============ Menu =============" << endl;
+        cout << "|| 1. Menu Admin             ||" << endl;
+        cout << "|| 2. Menu User              ||" << endl;
+        cout << "|| 0. exit                   ||" << endl;
+        cout << "===============================" << endl;
+        cout << "Pilih opsi : ";
         cin >> option;
         switch(option) {
            case 1  :
-              cout << "you choose option 1" << endl;
+              system("cls");
               menuAdmin(L);
               break;
            case 2  :
-              cout << "you choose option 2" << endl;
+              system("cls");
               menuUser(L);
               break;
-
-           default :
+           case 0 :
               exit(1);
+           default :
+              cout << "Pilihan tidak valid!\n" << endl;
         }
     }
-
 
     return 0;
 }
