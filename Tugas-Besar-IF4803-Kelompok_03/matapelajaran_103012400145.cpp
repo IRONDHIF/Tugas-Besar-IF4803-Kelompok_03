@@ -8,6 +8,7 @@ void insertFirstChild(adrP p, adrC c){
     } else {
         c->next = p->nextChild;
         p->nextChild->prev = c;
+        p->nextChild = c;
     }
 }
 
