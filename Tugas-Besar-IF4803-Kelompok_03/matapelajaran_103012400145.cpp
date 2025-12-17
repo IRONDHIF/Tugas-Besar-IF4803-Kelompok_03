@@ -37,6 +37,7 @@ void deleteLastChild(adrP p, adrC &c){
         }
         q->next = nullptr;
         c->prev = nullptr;
+        cout << "Data mata pelajaran berhasil dihapus!\n" << endl;
     }
 }
 
