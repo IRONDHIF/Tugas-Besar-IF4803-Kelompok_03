@@ -34,10 +34,12 @@ void deleteFirstGuru(ListGuru &L, adrP &p){
     } else if (L.first->next == nullptr) {
         p = L.first;
         L.first = nullptr;
+        cout << "Data guru berhasil dihapus!" << endl;
     } else {
         p = L.first;
         L.first = p->next;
         p->next = nullptr;
+        cout << "Data guru berhasil dihapus!" << endl;
     }
 }
 
@@ -46,6 +48,7 @@ void deleteAfterGuru(ListGuru &L, adrP &p, adrP prec){
     p = prec->next;
     prec->next = p->next;
     p->next = nullptr;
+    cout << "Data guru berhasil dihapus!" << endl;
 }
 
 void viewParent(ListGuru L){
@@ -56,7 +59,7 @@ void viewParent(ListGuru L){
         cout << "Nama Guru: " << p->infoGuru.nama << endl;
         cout << "Kode Guru: " << p->infoGuru.kode << endl;
         cout << "Umur Guru: " << p->infoGuru.umur << endl;
-        cout << "---------------------------" << endl;
+        cout << "-------------------------------" << endl;
         p = p->next;
     }
     cout << endl;
