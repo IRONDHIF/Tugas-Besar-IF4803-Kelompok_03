@@ -49,7 +49,7 @@ void menuUser(ListGuru &L){
                 cout << "you choose option 6" << endl;
                 studiKasus5(L);
             case 7 :
-                cout << "you choose option 6" << endl;
+                cout << "you choose option 7" << endl;
                 studiKasus6(L);
            case 0  :
               system("cls");
@@ -87,6 +87,7 @@ void studiKasus1(ListGuru &L){
 }
 
 void studiKasus2(ListGuru &L){
+    adrP prec;
     int hapus = 0;
     cout << "pada studi case ini kita akan menghapus guru yang tidak memegang mata pelajaran sama sekali";
     cout << "Menghapus Guru yang tidak memiliki matakpelajaran..." << endl;
@@ -104,7 +105,8 @@ void studiKasus2(ListGuru &L){
                 while (P->next != Q){
                     P = P->next;
                 }
-                deleteAfterGuru(L, P, Q);
+                prec = Q;
+                deleteAfterGuru(L, prec, P);
             }
         }
         Q = Q->next;
@@ -175,7 +177,7 @@ void studiKasus3(ListGuru &L){
             } else {
                 adrC Z = P->nextChild;
                 while (Z->next != C){
-                    Z = C->next;
+                    Z = Z->next;
                 }
                 deleteAfterChild(Z, C);
             }
