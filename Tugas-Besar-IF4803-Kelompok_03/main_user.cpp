@@ -97,8 +97,10 @@ void studiKasus2(ListGuru &L){
         if (Z == nullptr){
             hapus++;
             if (Q == L.first){
+                prec = q;
                 deleteFirstGuru(L, Q);
             } else if (Q->next == nullptr){
+                prec = Q;
                 deleteLastGuru(L, Q);
             } else {
                 adrP P = L.first;
