@@ -294,14 +294,25 @@ void menuMataPelajaran(ListGuru &L){
               if (precC == nullptr){
                 cout << "Mata pelajaran " << namaPrec << " tidak ditemukan!\n" << endl;
               } else if (precC->next == nullptr){
-                cout << "Tidak ada elemen setelah mata pelajaran " << namaPrec << "\n" << endl;
+                cout << "Tidak ada data mata pelajaran setelah mata pelajaran " << namaPrec << "\n" << endl;
               } else {
                 deleteAfterChild(precC, c);
               }
               break;
            case 7 :
               system("cls");
-              viewChild(p);
+              viewParent(L);
+              cout << "Masukkan nama guru: ";
+              cin >> nama;
+              p = findElemenGuru(L, nama);
+              system("cls");
+              if (p == nullptr){
+                cout << "Guru tidak ditemukan!\n" << endl;
+              } else if (p->nextChild == nullptr){
+                cout << "Guru belum memiliki mata pelajaran!\n" << endl;
+              } else {
+                viewChild(p);
+              }
               break;
            case 0 :
               system("cls");
