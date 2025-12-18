@@ -11,7 +11,7 @@ void menuUser(ListGuru &L){
         cout << "====== Menu Studi Kasus =======================================" << endl;
         cout << "|| 1. Menampilakan Guru dan Matapelajaran                    ||" << endl;
         cout << "|| 2. Input data Guru (NAMA / KODE guru harus berbeda)       ||" << endl;
-        cout << "|| 3. Menghapus guru yang tidak memiliki matapelajaran       ||" << endl;
+        cout << "|| 3. Menghapus sebuah guru yang tidak memiliki matapelajaran||" << endl;
         cout << "|| 4. Menghapus matapelajaran dari guru tertentu             ||" << endl;
         cout << "|| 5. Menghitung matapelajaran yang dipegang setiap guru     ||" << endl;
         cout << "|| 6. Menyisipkan matapelajaran kepada guru pilihan          ||" << endl;
