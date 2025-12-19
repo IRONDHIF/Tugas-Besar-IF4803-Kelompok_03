@@ -22,22 +22,18 @@ void menuUser(ListGuru &L){
         cin >> option;
         switch(option) {
            case 1  :
-              system("cls");
               cout << "you choose option 1" << endl;
                 printGuruMatapelajaran(L);
               break;
            case 2  :
-              system("cls");
               cout << "you choose option 2" << endl;
                 studiKasus1(L);
               break;
             case 3 :
-                system("cls");
                 cout << "you choose option 3" << endl;
                 studiKasus2(L);
                 break;
             case 4 :
-                system("cls");
                 cout << "you choose option 4" << endl;
                 studiKasus3(L);
                 break;
@@ -52,7 +48,6 @@ void menuUser(ListGuru &L){
                 cout << "you choose option 7" << endl;
                 studiKasus6(L);
            case 0  :
-              system("cls");
               cout << "Back to main menu..." << endl;
               break;
         }
@@ -97,11 +92,11 @@ void studiKasus2(ListGuru &L){
         if (Z == nullptr){
             hapus++;
             if (Q == L.first){
-                prec = q;
-                deleteFirstGuru(L, Q);
+                prec = Q;
+                deleteFirstGuru(L, prec);
             } else if (Q->next == nullptr){
                 prec = Q;
-                deleteLastGuru(L, Q);
+                deleteLastGuru(L, prec);
             } else {
                 adrP P = L.first;
                 while (P->next != Q){
