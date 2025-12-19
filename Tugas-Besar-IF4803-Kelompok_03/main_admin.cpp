@@ -80,6 +80,7 @@ void menuGuru(ListGuru &L){
               break;
            case 3 :{
               system("cls");
+              viewParent(L);
               cout << "Masukkan nama guru prec: ";
               cin >> namaPrec;
               precP = findElemenGuru(L, namaPrec);
@@ -109,6 +110,7 @@ void menuGuru(ListGuru &L){
               break;
            case 6 :
               system("cls");
+              viewParent(L);
               cout << "Masukkan nama guru prec: ";
               cin >> namaPrec;
               precP = findElemenGuru(L, namaPrec);
@@ -231,6 +233,7 @@ void menuMataPelajaran(ListGuru &L){
                   cout << "Nama guru tidak ditemukan!\n" << endl;
                   break;
               }
+              viewChild(p);
               cout << "Masukkan nama mata pelajaran prec: ";
               cin >> namaPrec;
               precC = findElemenChild(p, namaPrec);
@@ -283,18 +286,27 @@ void menuMataPelajaran(ListGuru &L){
               break;
            case 6 :
               system("cls");
+              cout << "Masukkan nama guru yang akan dihapus mata pelajaran: ";
+              cin >> nama;
+              p = findElemenGuru(L, nama);
+              if (p == nullptr){
+                  cout << "Nama guru tidak ditemukan!\n" << endl;
+                  break;
+              }
+              if (p->nextChild == nullptr){
+                cout << "Guru belum memiliki mata pelajaran\n" << endl;
+                break;
+              }
+              viewChild(p);
               cout << "Masukkan nama mata pelajaran prec: ";
               cin >> namaPrec;
-              if (p == nullptr){
-                cout << "Mata pelajaran "<< namaPrec << " tidak ditemukan!\n" << endl;
-                break;
-              } else {
-                precC = findElemenChild(p, namaPrec);
-              }
+              precC = findElemenChild(p, namaPrec);
               if (precC == nullptr){
                 cout << "Mata pelajaran " << namaPrec << " tidak ditemukan!\n" << endl;
+                break;
               } else if (precC->next == nullptr){
                 cout << "Tidak ada data mata pelajaran setelah mata pelajaran " << namaPrec << "\n" << endl;
+                break;
               } else {
                 deleteAfterChild(precC, c);
               }
